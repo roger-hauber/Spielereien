@@ -10,7 +10,7 @@
 #requires package "quanteda"
 
 simple_encryption <- function(message, key, decode = FALSE){
-  code <- letters[c((1+key):length(letters), 1:key)]
+  code <- letters[c(1+ (key %% length(letters)):length(letters), 1:key)]
   res <- unlist(strsplit(message, " "))
   res <- unlist(strsplit(res, ""))
   res <- tolower(res)
