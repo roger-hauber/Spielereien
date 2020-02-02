@@ -1,6 +1,12 @@
 #### write a function that takes a message and encrypts it with "alphabetical displacement" (e.g. key = 2 -> a = c, b = d, c = e...)
 #let's try this >> this works but without spaces
 
+#only works with lower case letters and does not allow punctuation
+
+#message = character string of the entire message to encrypt; key = the number by which each letter is "displaced" in the alphabet: key == 4 ->
+# a == e, etc; decode = FALSE is default, but if == TRUE then providing the encoded message 
+#and the appropiate value for key will decode to original message
+
 simple_encryption <- function(message, key, decode = FALSE){
   code <- letters[c((1+key):length(letters), 1:key)]
   res <- unlist(strsplit(message, " "))
