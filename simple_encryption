@@ -11,7 +11,7 @@ simple_encryption <- function(message, key, decode = FALSE){
   code <- letters[c(1+ (key %% length(letters)):length(letters), 1:key)]
   
   res <- gsub("[[:punct:]]", "", message)
-  res <- unlist(strsplit(res, " "))
+  res <- gsub("\\s", "", res)
   res <- unlist(strsplit(res, ""))
   res <- tolower(res)
   
